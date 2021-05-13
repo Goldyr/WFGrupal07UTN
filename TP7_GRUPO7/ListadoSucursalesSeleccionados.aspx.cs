@@ -11,7 +11,11 @@ namespace TP7_GRUPO7
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Fila"] != null)
+            {
+                grdListado.DataSource = Session["Fila"];
+                grdListado.DataBind();
+            }
         }
     }
 }

@@ -92,7 +92,7 @@
                 </td>
             </InsertItemTemplate>
             <ItemTemplate>
-                <td runat="server" style="background-color: #DCDCDC; color: #000000;" Width="300px">
+                <td runat="server" style="background-color: #DCDCDC; color: #000000;" width="300px">
                     <br />
                     &nbsp;&nbsp;
                     <asp:Label ID="NombreSucursalLabel" runat="server" Text='<%# Eval("NombreSucursal") %>' Font-Bold="True" />
@@ -104,7 +104,7 @@
                     <asp:Label ID="DescripcionSucursalLabel" runat="server" Text='<%# Eval("DescripcionSucursal") %>' Width="250px" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                    <center><asp:Button ID="btnSeleccionar" runat="server" Height="20px" Text="Seleccionar" /></center>
+                    <center><asp:Button ID="btnSeleccionar" runat="server" Height="20px" Text="Seleccionar" CommandArgument='<%# Eval("Id_Sucursal") %>' CommandName="evento_seleccionar" OnCommand="btnSeleccionar_Command" /></center>
                     <br />
                 </td>
             </ItemTemplate>
@@ -149,6 +149,7 @@
         </asp:ListView>
         <asp:SqlDataSource ID="ds_Sucursales" runat="server" ConnectionString="<%$ ConnectionStrings:BDSucursalesConnectionString %>" SelectCommand="SELECT [Id_Sucursal], [NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM [Sucursal]"></asp:SqlDataSource>
     </div>
+        <asp:Label ID="lblaver" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
       
