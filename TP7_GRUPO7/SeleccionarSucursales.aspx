@@ -28,35 +28,21 @@
     </div>
     <div id="ContenidoDerecha">
     <div id="ContenidoIzquierda">
-        <asp:DataList ID="dtl_Provincias" runat="server" DataKeyField="Id_Provincia" DataSourceID="ds_Provincias">
+        <asp:DataList ID="dtl_Provincias" runat="server" DataKeyField="Id_Provincia" DataSourceID="ds_Provincias" Width="174px" CellSpacing="15">
             <HeaderTemplate>
                 DataList
             </HeaderTemplate>
             <ItemTemplate>
-                <asp:Button ID="dtl_btn_Provincias" runat="server" Height="50px" Text='<%# Bind("DescripcionProvincia") %>' Width="250px" />
+                <asp:Button ID="dtl_btn_Provincias" runat="server" Height="30px" Text='<%# Bind("DescripcionProvincia") %>' Width="130px" />
                 <br />
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="ds_Provincias" runat="server" ConnectionString="<%$ ConnectionStrings:BDSucursalesConnectionString %>" SelectCommand="SELECT [DescripcionProvincia], [Id_Provincia] FROM [Provincia]"></asp:SqlDataSource>
     </div>
-        <asp:ListView ID="lv_Sucursales" runat="server" DataKeyNames="Id_Sucursal" DataSourceID="ds_Sucursales" GroupItemCount="3">
-            <AlternatingItemTemplate>
-                <td runat="server" style="background-color: #FAFAD2;color: #284775;">Id_Sucursal:
-                    <asp:Label ID="Id_SucursalLabel" runat="server" Text='<%# Eval("Id_Sucursal") %>' />
-                    <br />
-                    NombreSucursal:
-                    <asp:Label ID="NombreSucursalLabel" runat="server" Text='<%# Eval("NombreSucursal") %>' />
-                    <br />
-                    DescripcionSucursal:
-                    <asp:Label ID="DescripcionSucursalLabel" runat="server" Text='<%# Eval("DescripcionSucursal") %>' />
-                    <br />
-                    URL_Imagen_Sucursal:
-                    <asp:Label ID="URL_Imagen_SucursalLabel" runat="server" Text='<%# Eval("URL_Imagen_Sucursal") %>' />
-                    <br />
-                </td>
-            </AlternatingItemTemplate>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:ListView ID="lv_Sucursales" runat="server" DataKeyNames="Id_Sucursal" DataSourceID="ds_Sucursales" GroupItemCount="3">     
             <EditItemTemplate>
-                <td runat="server" style="background-color: #FFCC66;color: #000080;">Id_Sucursal:
+                <td runat="server" style="background-color: #008A8C; color: #FFFFFF;">Id_Sucursal:
                     <asp:Label ID="Id_SucursalLabel1" runat="server" Text='<%# Eval("Id_Sucursal") %>' />
                     <br />
                     NombreSucursal:
@@ -106,17 +92,19 @@
                 </td>
             </InsertItemTemplate>
             <ItemTemplate>
-                <td runat="server" style="background-color: #FFFBD6;color: #333333;">Id_Sucursal:
-                    <asp:Label ID="Id_SucursalLabel" runat="server" Text='<%# Eval("Id_Sucursal") %>' />
+                <td runat="server" style="background-color: #DCDCDC; color: #000000;" Width="300px">
                     <br />
-                    NombreSucursal:
-                    <asp:Label ID="NombreSucursalLabel" runat="server" Text='<%# Eval("NombreSucursal") %>' />
+                    &nbsp;&nbsp;
+                    <asp:Label ID="NombreSucursalLabel" runat="server" Text='<%# Eval("NombreSucursal") %>' Font-Bold="True" />
                     <br />
-                    DescripcionSucursal:
-                    <asp:Label ID="DescripcionSucursalLabel" runat="server" Text='<%# Eval("DescripcionSucursal") %>' />
+                    &nbsp;&nbsp;
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="150px" ImageUrl='<%# Eval("URL_Imagen_Sucursal") %>' Width="250px" />
                     <br />
-                    URL_Imagen_Sucursal:
-                    <asp:Label ID="URL_Imagen_SucursalLabel" runat="server" Text='<%# Eval("URL_Imagen_Sucursal") %>' />
+                    &nbsp;&nbsp;
+                    <asp:Label ID="DescripcionSucursalLabel" runat="server" Text='<%# Eval("DescripcionSucursal") %>' Width="250px" />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <center><asp:Button ID="btnSeleccionar" runat="server" Height="20px" Text="Seleccionar" /></center>
                     <br />
                 </td>
             </ItemTemplate>
@@ -131,7 +119,7 @@
                         </td>
                     </tr>
                     <tr runat="server">
-                        <td runat="server" style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
+                        <td runat="server" style="text-align: center;background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                             <asp:DataPager ID="DataPager1" runat="server" PageSize="6">
                                 <Fields>
                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
@@ -144,7 +132,7 @@
                 </table>
             </LayoutTemplate>
             <SelectedItemTemplate>
-                <td runat="server" style="background-color: #FFCC66;font-weight: bold;color: #000080;">Id_Sucursal:
+                <td runat="server" style="background-color: #008A8C; font-weight: bold;color: #FFFFFF;">Id_Sucursal:
                     <asp:Label ID="Id_SucursalLabel" runat="server" Text='<%# Eval("Id_Sucursal") %>' />
                     <br />
                     NombreSucursal:
