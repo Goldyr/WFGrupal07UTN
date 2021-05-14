@@ -8,6 +8,13 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace TP7_GRUPO7
+
+
+/*En la parte superior del formulario, se podrá escribir sobre el textbox el nombre
+completo o parcial de la sucursal que se desee, luego al hacer click sobre el
+botón buscar, traerá la sucursal buscada. Si deja el textbox en blanco entonces
+se mostrarán todas las sucursales.*/
+
 {
     public partial class SeleccionarSucursales : System.Web.UI.Page
     {
@@ -56,8 +63,6 @@ namespace TP7_GRUPO7
             columna = new DataColumn("DESCRIPCION", System.Type.GetType("System.String"));
             dt.Columns.Add(columna);
 
-
-
             return dt;
         }
 
@@ -86,6 +91,11 @@ namespace TP7_GRUPO7
             return false;
         }
 
-
+        protected void btn_NombreSucursal_Click(object sender, EventArgs e)
+        {
+            ds_Sucursales.SelectCommand = "SELECT[Id_Sucursal], " +
+            "[NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM[Sucursal] WHERE NombreSucursal LIKE '" + 
+            txtbx_NombreSucursal.Text + "%'";
+        }
     }
 }

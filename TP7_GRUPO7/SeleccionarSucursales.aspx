@@ -24,7 +24,7 @@
     <div style="text-align: right">
         <p>Busqueda nombre de sucursal:</p>
         <asp:TextBox ID="txtbx_NombreSucursal" runat="server"></asp:TextBox>
-        <asp:Button ID="btn_NombreSucursal" runat="server" Text="Buscar" />
+        <asp:Button ID="btn_NombreSucursal" runat="server" Text="Buscar" OnClick="btn_NombreSucursal_Click" />
     </div>
     <div id="ContenidoDerecha">
     <div id="ContenidoIzquierda">
@@ -149,7 +149,6 @@
         </asp:ListView>
         <asp:SqlDataSource ID="ds_Sucursales" runat="server" ConnectionString="<%$ ConnectionStrings:BDSucursalesConnectionString %>" SelectCommand="SELECT [Id_Sucursal], [NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM [Sucursal]"></asp:SqlDataSource>
     </div>
-        <asp:Label ID="lblaver" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
       
