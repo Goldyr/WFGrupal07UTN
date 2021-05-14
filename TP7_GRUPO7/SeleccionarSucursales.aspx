@@ -33,7 +33,7 @@
                 DataList
             </HeaderTemplate>
             <ItemTemplate>
-                <asp:Button ID="dtl_btn_Provincias" runat="server" Height="30px" Text='<%# Bind("DescripcionProvincia") %>' Width="130px" />
+                <asp:Button ID="dtl_btn_Provincias" runat="server" Height="30px" Text='<%# Bind("DescripcionProvincia") %>' Width="130px" CommandArgument='<%# Eval("Id_Provincia") %>' CommandName="sel_provincia_suc" OnCommand="dtl_btn_Provincias_Command" />
                 <br />
             </ItemTemplate>
         </asp:DataList>
