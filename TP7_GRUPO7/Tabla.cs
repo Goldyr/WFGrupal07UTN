@@ -9,7 +9,7 @@ namespace TP7_GRUPO7
 {
     public class Tabla
     {
-        AccesoDatos Ad;
+        AccesoDatos Ad = new AccesoDatos();
 
         // Consultas
         private string consultaNombre = "Select NombreSucursal from Sucursal where Id_Sucursal=";
@@ -22,7 +22,7 @@ namespace TP7_GRUPO7
 
         public Tabla()
         {
-            AccesoDatos Ad = new AccesoDatos();
+            
             Id = "";
             Nombre = "";
             Desc = "";

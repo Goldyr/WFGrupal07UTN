@@ -14,7 +14,11 @@ namespace TP7_GRUPO7
         Tabla TablaSucursales = new Tabla();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack == false)
+            {
+                Session["consulta"] = "SELECT[Id_Sucursal], [NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM[Sucursal]";
+            }
+            ds_Sucursales.SelectCommand = Session["consulta"].ToString();
         }
 
         protected void btnSeleccionar_Command(object sender, CommandEventArgs e)
@@ -33,9 +37,17 @@ namespace TP7_GRUPO7
 
         protected void btn_NombreSucursal_Click(object sender, EventArgs e) // Para la busqueda de sucursales
         {
-            ds_Sucursales.SelectCommand = "SELECT[Id_Sucursal], " +
-            "[NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM[Sucursal] WHERE NombreSucursal LIKE '" + 
-            txtbx_NombreSucursal.Text + "%'";
+            if (txtbx_NombreSucursal.Text.Trim() == "")
+            {
+                Session["consulta"] = "SELECT[Id_Sucursal], [NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM[Sucursal]";
+            }
+            else {
+                Session["consulta"] = "SELECT[Id_Sucursal], " +
+                "[NombreSucursal], [DescripcionSucursal], [URL_Imagen_Sucursal] FROM[Sucursal] WHERE NombreSucursal LIKE '" +
+                txtbx_NombreSucursal.Text + "%'";
+            }
+            ds_Sucursales.SelectCommand = Session["consulta"].ToString();
+            lv_Sucursales.Page.DataBind();
         }
 
         protected void dtl_btn_Provincias_Command(object sender, CommandEventArgs e) // Filtrar sucursal por su provincia
@@ -45,8 +57,10 @@ namespace TP7_GRUPO7
 
             if (e.CommandName == "sel_provincia_suc")
             {
-                ds_Sucursales.SelectCommand = consulta += e.CommandArgument;
+                Session["consulta"]= consulta += e.CommandArgument;
             }
+            ds_Sucursales.SelectCommand = Session["consulta"].ToString();
+            lv_Sucursales.Page.DataBind();
         }
     }
 }

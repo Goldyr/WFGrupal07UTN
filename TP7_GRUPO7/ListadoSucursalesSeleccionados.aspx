@@ -17,7 +17,7 @@
         <br />
         <asp:HyperLink ID="linkMostrarSeleccionado" runat="server" NavigateUrl="ListadoSucursalesSeleccionados.aspx">Mostrar sucursales seleccionadas</asp:HyperLink>
     </div>
-
+        <h1>Mostrar Sucursales Seleccionadas</h1>
         <asp:GridView ID="grdListado" runat="server">
         </asp:GridView>
 
